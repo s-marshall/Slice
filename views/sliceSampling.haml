@@ -1,0 +1,42 @@
+!!!5
+%html(lang="en")
+  %head
+    %title Slice Sampling
+    %script{:type => "text/javascript", :src => "js/processing-1.4.1.min.js"}
+  %body{:id => 'body'}
+    %h2 One-dimensional function
+    %p
+      The function is plotted as a black line.
+      The 10,000 points shown in red were sampled by slice sampling.
+    %canvas{:id => 'screen_OneD'}
+    
+    %h2 Who dunnit? - An inference example
+    %p
+      Alice is the murderer with probability 30% and will use a pipe 97% of the time and a gun 3% of the time.
+    %p
+      Bob is the murderer with probability 70% and will use a gun 80% of the time and a pipe 20% of the time.
+      
+    %h2 Query
+    If a pipe is found at the scene of the murder, what is the probability that Alice committed the crime? (answer: 68%)
+    %h3
+      Distribution of 50,000 points sampled by slice sampling
+    %canvas{:id => 'Who dunnit?'}
+    %ul
+      %li
+        RED - Alice kills with gun
+      %li
+        GREEN - Alice kills with pipe
+      %li
+        YELLOW - Bob kills with pipe
+      %li
+        BLUE - Bob kills with gun
+    %p{:id => 'results'}
+    %p
+      The splice sampling algorithm is the version found in the book
+      %a{:href => 'http://www.inference.phy.cam.ac.uk/mackay/itila/'}Information Theory, Inference, and Learning Algorithms
+      by David J.C. MacKay.
+      The Who dunnit? problem is from
+      %a{:href => 'http://channel9.msdn.com/Events/Lang-NEXT/Lang-NEXT-2012/Reverend-Bayes-meet-Countess-Lovelace-Probabilistic-Programming-for-Machine-Learning'}this talk
+      by Andy Gordon.
+    %script{:type => "text/javascript", :src => "js/sliceSampling.js"}
+    
